@@ -4,6 +4,7 @@ import { Label } from "../ui/landing-ui/label";
 import { Input } from "../ui/landing-ui/input";
 import { cn } from "@/lib/utils";
 import { Checkbox } from "../ui/landing-ui/checkbox";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export function Signupform() {
@@ -12,6 +13,7 @@ export function Signupform() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,6 +36,7 @@ export function Signupform() {
     const newUser = { ...user, password }; // Merge password into user object
     localStorage.setItem(`user-${user.email}`, JSON.stringify(newUser));
 
+    router.push("/signin");
     console.log("User saved:", newUser);
   };
 

@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 export function Signinform() {
 
-  const router = useRouter(); // ✅ Initialize router
+  const router = useRouter(); // Initialize router
 
 
   const [email, setEmail] = useState("");
